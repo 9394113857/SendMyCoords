@@ -8,6 +8,7 @@ __pycache__/
 
 # Log files
 *.log
+logs/
 
 # Database files
 *.sqlite3
