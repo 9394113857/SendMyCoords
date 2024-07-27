@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SendMyCoords</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons8-send-email-96.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center">
+            <h1 class="display-4">SendMyCoords</h1>
+            <p>Making the World Better, One Email at a Time</p>
+        </div>
+    </header>
+    <div class="container">
+        <button class="btn btn-primary mb-3" onclick="getLocation()">Give Access to GPS Location</button>
+        <form id="userForm" onsubmit="sendForm(event)">
+            <div class="form-group">
+                <label for="user_name">Your Name:</label>
+                <input type="text" class="form-control" id="user_name" name="user_name" required>
+            </div>
+            <div class="form-group">
+                <label for="user_email">Your Email:</label>
+                <input type="email" class="form-control" id="user_email" name="user_email" required>
+            </div>
+            <div class="form-group">
+                <label for="user_phone">Your Phone:</label>
+                <input type="text" class="form-control" id="user_phone" name="user_phone">
+            </div>
+            <div class="form-group">
+                <label for="user_address">Your Address:</label>
+                <input type="text" class="form-control" id="user_address" name="user_address">
+            </div>
+            <button type="submit" class="btn btn-primary">Send Email</button>
+        </form>
+        <p id="status" class="mt-3">We will send your coordinates and details to the backend team.</p>
+    </div>
+    <footer class="footer">
+        <div class="container text-center py-3">
+            <small>&copy; 2024 SendMyCoords. All Rights Reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Virtual environment
+flask-project-env/
+
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Log files
+*.log
+
+# Database files
+*.sqlite3
+
+# Environment variables file
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs_analysis.dat
+*.nib
+*.swp
+*.swo
