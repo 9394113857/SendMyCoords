@@ -3,7 +3,11 @@ let longitude = null;
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(setCoordinates, showError);
+        navigator.geolocation.getCurrentPosition(setCoordinates, showError, {
+            enableHighAccuracy: true,  // Request high accuracy
+            timeout: 10000,            // Set a timeout (10 seconds)
+            maximumAge: 0              // Prevent returning a cached position
+        });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
@@ -12,7 +16,9 @@ function getLocation() {
 function setCoordinates(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    document.getElementById('status').innerText = 'Coordinates obtained. Please fill in your details.';
+    const accuracy = position.coords.accuracy;
+
+    document.getElementById('status').innerText = `Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters.`;
     document.getElementById('submitButton').disabled = false;  // Enable the submit button
 }
 

@@ -1,57 +1,68 @@
+/* General body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Light gray background color */
 }
 
+/* Header styles */
 .header {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 20px 0;
+    background-color: #007BFF; /* Primary blue color */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Vertical padding */
 }
 
+/* Header title styles */
 .header h1 {
-    font-size: 36px;
+    font-size: 36px; /* Font size for the title */
 }
 
+/* Header paragraph styles */
 .header p {
-    font-size: 18px;
+    font-size: 18px; /* Font size for the subtitle */
 }
 
+/* Container styles */
 .container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 20px; /* Bottom margin */
 }
 
+/* Button styles */
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #007BFF; /* Primary blue background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
 }
 
+/* Button hover effect */
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Form label styles */
 .form-group label {
-    font-weight: bold;
+    font-weight: bold; /* Bold font */
 }
 
+/* Status message styles */
 #status {
-    font-size: 18px;
-    color: #333;
+    font-size: 18px; /* Font size */
+    color: #333; /* Dark gray color */
 }
 
+/* Footer styles */
 .footer {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* White text color */
 }
 
+/* Footer small text styles */
 .footer small {
-    color: #adb5bd;
+    color: #adb5bd; /* Light gray color for small text */
 }

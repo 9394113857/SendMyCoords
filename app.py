@@ -56,6 +56,9 @@ def send_coordinates():
         user_address = data.get('user_address', '')  # Default to empty string if not provided
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+        # Google Maps link with coordinates
+        google_maps_link = f'https://www.google.com/maps?q={latitude},{longitude}'
+
         # Prepare the email
         msg = Message('User GPS Coordinates and Details',
                       sender=('Coordinates Service', 'practicesession3@gmail.com'),  # Display name and email
@@ -104,19 +107,28 @@ def send_coordinates():
                     <td>Timestamp</td>
                     <td>{timestamp}</td>
                 </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Google Maps Link</td>
+                    <td><a href="{google_maps_link}" target="_blank">View on Google Maps</a></td>
+                </tr>
             </table>
-            <p>This email was sent from Flask-Mail at {timestamp}</p>
+            <p><strong>Note:</strong> This email was sent from the GPS Coordinates Service. If you have any questions, please contact us.</p>
         '''
-        
+
         # Send the email
         mail.send(msg)
-        
-        logger.info('Coordinates and details sent successfully. User Email: %s', user_email)
-        return jsonify({'message': 'Coordinates and details sent successfully!'})
+
+        # Log success with user details
+        logger.warning(f'Successfully sent email. Details: User: {user_name}, Email: {user_email}, Coordinates: ({latitude}, {longitude}), Timestamp: {timestamp}')
+
+        return jsonify({'message': 'Email sent successfully!', 'latitude': latitude, 'longitude': longitude}), 200
 
     except Exception as e:
-        logger.error('Error sending coordinates and details: %s', str(e))
-        return jsonify({'message': 'Failed to send coordinates and details'}), 500
+        # Log the error with traceback details
+        logger.error(f'Error occurred: {str(e)}', exc_info=True)
+
+        return jsonify({'message': 'An error occurred while sending the email.', 'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
